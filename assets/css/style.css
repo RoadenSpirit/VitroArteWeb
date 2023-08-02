@@ -449,6 +449,51 @@ nav.navbar.bootsnav .navbar-toggle i{color: #000000;}
     background: #5f5b57;
     border: 1px solid #5f5b57;
 }
+/*-------------------------------------
+        5. carousel 
+--------------------------------------*/
+.carousel {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: scroll;
+    margin: 70px;
+
+    
+  }
+  
+  .slide {
+    flex: 1 0 auto;
+    margin-right: 0px;
+    
+  }
+
+  slide:last-child {
+    margin-right: 0; /* Elimina el margen derecho del último elemento */
+  }
+  
+  .slide img {
+    width: 500px;
+    height: 300px;
+    
+  }
+
+  @keyframes slide-out-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  @keyframes slide-in-right {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
 
 /*-------------------------------------
         5. New-arrivals 
