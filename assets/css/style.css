@@ -452,14 +452,23 @@ nav.navbar.bootsnav .navbar-toggle i{color: #000000;}
 /*-------------------------------------
         5. carousel 
 --------------------------------------*/
-.carousel {
+.carrucel {
     display: flex;
     flex-wrap: nowrap;
     overflow: scroll;
-    margin: 70px;
+    margin: 70px; 
+}
+
+.carousel list{
+    width: fit-content;
+    height: 250px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 0px 50px;
 
     
-  }
+}
   
   .slide {
     flex: 1 0 auto;
