@@ -452,57 +452,73 @@ nav.navbar.bootsnav .navbar-toggle i{color: #000000;}
 /*-------------------------------------
         5. carousel 
 --------------------------------------*/
-.carrucel {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow: scroll;
-    margin: 70px; 
+
+/* ---- ----- ----- Contenedor Principal y Flechas ----- ----- ----- */
+
+
+.contenedor-principal {
+	display: flex;
+	align-items: center;
+	position: relative;
+    padding: 50px;
 }
 
-.carousel list{
-    width: fit-content;
-    height: 250px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    margin: 0px 50px;
-
-    
+.contenedor-principal .flecha-izquierda,
+.contenedor-principal .flecha-derecha {
+	position: absolute;
+	border: none;
+	background: rgba(0,0,0,0.3);
+	font-size: 40px;
+	height: 60%;
+	line-height: 40px;
+	width: 50px;
+	color: #fff;
+	cursor: pointer;
+	z-index: 500;
+	transition: .2s ease all;
 }
-  
-  .slide {
-    flex: 1 0 auto;
-    margin-right: 0px;
-    
-  }
 
-  slide:last-child {
-    margin-right: 0; /* Elimina el margen derecho del último elemento */
-  }
-  
-  .slide img {
-    width: 500px;
-    height: 300px;
-    
-  }
+.contenedor-principal .flecha-izquierda:hover,
+.contenedor-principal .flecha-derecha:hover {
+	background: rgba(0,0,0, .9);
+}
 
-  @keyframes slide-out-left {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
-  
-  @keyframes slide-in-right {
-    0% {
-      transform: translateX(100%);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
+.contenedor-principal .flecha-izquierda {
+	left: 0;
+}
+
+.contenedor-principal .flecha-derecha {
+	right: 0;
+}
+
+/* ---- ----- ----- Carousel ----- ----- ----- */
+.contenedor-carousel {
+	width: 100%;
+	padding: 20px 0;
+	overflow: hidden;
+	scroll-behavior: smooth;
+}
+
+.contenedor-carousel .carousel {
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+.contenedor-carousel .carousel .imagen {
+	min-width: 50%;
+	transition: .3s ease all;
+	box-shadow: 5px 5px 10px rgba(0,0,0, .3);
+}
+
+.contenedor-carousel .carousel .imagen.hover {
+	transform: scale(1.2);
+	transform-origin: center;
+}
+
+.contenedor-carousel .carousel .imagen img {
+	width: 100%;
+	vertical-align: top;
+}
 
 /*-------------------------------------
         5. New-arrivals 
