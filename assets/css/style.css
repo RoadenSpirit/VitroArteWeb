@@ -469,7 +469,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #000000;}
 	border: none;
 	background: rgba(0,0,0,0.3);
 	font-size: 40px;
-	height: 60%;
+	height: 70%;
 	line-height: 40px;
 	width: 50px;
 	color: #fff;
@@ -518,6 +518,36 @@ nav.navbar.bootsnav .navbar-toggle i{color: #000000;}
 .contenedor-carousel .carousel .imagen img {
 	width: 100%;
 	vertical-align: top;
+}
+
+/* ---- ----- ----- Contenedor Titulo y Controles ----- ----- ----- */
+.contenedor-titulo-controles {
+	display: flex;
+	justify-content: space-between;
+	align-items: end;
+    margin-top: 80px;
+}
+
+.contenedor-titulo-controles h3 {
+	color: #fff;
+	font-size: 30px;
+    align-items: center;
+    margin-left: 100px;
+}
+
+.contenedor-titulo-controles .indicadores button {
+	background: #fff;
+	height: 3px;
+	width: 10px;
+	cursor: pointer;
+	border: none;
+	margin-right: 2px;
+}
+
+.contenedor-titulo-controles .indicadores button:hover,
+.contenedor-titulo-controles .indicadores button.activo {
+	background: red;
+    
 }
 
 /*-------------------------------------
@@ -889,6 +919,7 @@ span.feature-review {margin-left: 10px;}
     display: flex;
     align-items: center;
     height: 154px;
+    margin-top: 30px;
 }
 .hm-footer-copyright p,.hm-footer-copyright p a {
     color: #a5adb3;
