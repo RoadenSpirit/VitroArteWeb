@@ -131,7 +131,7 @@ nav.navbar.bootsnav {
 .navbar-brand img{
     height: 70px;
     width: 180px;
-    border-radius: 50px;
+    border-radius: 5px;
     position: relative;
     top: -25px
 }
@@ -494,6 +494,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #000000;}
 /* ---- ----- ----- Carousel ----- ----- ----- */
 .contenedor-carousel {
 	width: 100%;
+    height: 100%;
 	padding: 20px 0;
 	overflow: hidden;
 	scroll-behavior: smooth;
@@ -506,7 +507,6 @@ nav.navbar.bootsnav .navbar-toggle i{color: #000000;}
 
 .contenedor-carousel .carousel .imagen {
 	min-width: 50%;
-	transition: .3s ease all;
 	box-shadow: 5px 5px 10px rgba(0,0,0, .3);
 }
 
@@ -516,7 +516,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #000000;}
 }
 
 .contenedor-carousel .carousel .imagen img {
-	width: 100%;
+    height: 450px;
 	vertical-align: top;
 }
 
