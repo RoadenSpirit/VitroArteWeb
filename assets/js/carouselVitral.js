@@ -112,3 +112,28 @@ for(let i = 0; i < numeroPaginas; i++){
 }
 
 
+// Movil desplazamiento 
+
+const filA = document.querySelector('.contenedor-carousel');
+let touchStartX = 0;
+let touchEndX = 0;
+
+fila.addEventListener('touchstart', (event) => {
+  touchStartX = event.touches[0].clientX;
+});
+
+fila.addEventListener('touchmove', (event) => {
+  touchEndX = event.touches[0].clientX;
+});
+
+fila.addEventListener('touchend', () => {
+  const distanciaDesplazamiento = touchEndX - touchStartX;
+
+  if (distanciaDesplazamiento > 50) {
+    // Desplazar hacia la izquierda
+    filA.scrollLeft -= fila.offsetWidth;
+  } else if (distanciaDesplazamiento < -50) {
+    // Desplazar hacia la derecha
+    filA.scrollLeft += fila.offsetWidth;
+  }
+});
