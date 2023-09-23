@@ -2,19 +2,25 @@ const fila = document.querySelector('.contenedor-carousel');
 const imagen = document.querySelectorAll('.imagen');
 const flechaIzquierda = document.getElementById('flecha-izquierda');
 const flechaDerecha = document.getElementById('flecha-derecha');
-let velocidadDesplazamiento = 10;
+let velocidadDesplazamiento = 7;
 // ? ----- ----- Event Listener para la flecha derecha. ----- -----
 let intervaloDesplazamiento;
 
+
 flechaDerecha.addEventListener('mousedown', () => {
     intervaloDesplazamiento = setInterval(() => {
-		fila.scrollLeft += fila.offsetWidth / 2 / velocidadDesplazamiento; 
-        const indicadorActivo = document.querySelector('.indicadores .activo');
-        if (indicadorActivo.nextSibling) {
-            indicadorActivo.nextSibling.classList.add('activo');
-            indicadorActivo.classList.remove('activo');
+        fila.scrollLeft += fila.offsetWidth / 2 / velocidadDesplazamiento;
+        contadorMovimientos++;
+
+        if (contadorMovimientos === 22) {
+            const indicadorActivo = document.querySelector('.indicadores .activo');
+            if (indicadorActivo.nextSibling) {
+                indicadorActivo.nextSibling.classList.add('activo');
+                indicadorActivo.classList.remove('activo');
+            }
+            contadorMovimientos = 0; // Reinicia el contador de movimientos
         }
-    }, 100); // Ajusta el intervalo de tiempo según tus necesidades (en milisegundos)
+    }, 100);
 });
 
 flechaDerecha.addEventListener('mouseup', () => {
@@ -24,15 +30,22 @@ flechaDerecha.addEventListener('mouseup', () => {
 
 // ? ----- ----- Event Listener para la flecha izquierda. ----- -----
 
+let contadorMovimientos = 0;
+
 flechaIzquierda.addEventListener('mousedown', () => {
     intervaloDesplazamiento = setInterval(() => {
-        fila.scrollLeft -= fila.offsetWidth / 2 / velocidadDesplazamiento; // Ajusta la velocidad de desplazamiento según tus necesidades
-        const indicadorActivo = document.querySelector('.indicadores .activo');
-        if (indicadorActivo.previousSibling) {
-            indicadorActivo.previousSibling.classList.add('activo');
-            indicadorActivo.classList.remove('activo');
+        fila.scrollLeft -= fila.offsetWidth / 2 / velocidadDesplazamiento;
+        contadorMovimientos++;
+
+        if (contadorMovimientos === 22) {
+            const indicadorActivo = document.querySelector('.indicadores .activo');
+            if (indicadorActivo.previousSibling) {
+                indicadorActivo.previousSibling.classList.add('activo');
+                indicadorActivo.classList.remove('activo');
+            }
+            contadorMovimientos = 0; // Reinicia el contador de movimientos
         }
-    }, 100); // Ajusta el intervalo de tiempo según tus necesidades (en milisegundos)
+    }, 100);
 });
 
 flechaIzquierda.addEventListener('mouseup', () => {
@@ -56,13 +69,3 @@ for(let i = 0; i < numeroPaginas; i++){
 	});
 }
 
-// Movimiento automatico 
-window.addEventListener('scroll', function() {
-    const carousel = document.getElementById('carousel');
-    const carruselPosicion = carousel.getBoundingClientRect().top;
-    const ventanaAltura = window.innerHeight;
-
-    if (carruselPosicion < ventanaAltura) {
-        console.log('El carrusel es visible en el sitio');
-    }
-});
