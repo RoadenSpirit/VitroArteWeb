@@ -51,6 +51,48 @@ flechaIzquierda.addEventListener('mousedown', () => {
 flechaIzquierda.addEventListener('mouseup', () => {
     clearInterval(intervaloDesplazamiento);
 });
+
+// ? ----- ----- Event Listener para la flecha derecha. ----- -----
+flechaDerecha.addEventListener('touchstart', () => {
+    intervaloDesplazamiento = setInterval(() => {
+        fila.scrollLeft += fila.offsetWidth / 2 / velocidadDesplazamiento;
+        contadorMovimientos++;
+
+        if (contadorMovimientos === 22) {
+            const indicadorActivo = document.querySelector('.indicadores .activo');
+            if (indicadorActivo.nextSibling) {
+                indicadorActivo.nextSibling.classList.add('activo');
+                indicadorActivo.classList.remove('activo');
+            }
+            contadorMovimientos = 0;
+        }
+    }, 100);
+});
+
+flechaDerecha.addEventListener('touchend', () => {
+    clearInterval(intervaloDesplazamiento);
+});
+
+// ? ----- ----- Event Listener para la flecha izquierda. ----- -----
+flechaIzquierda.addEventListener('touchstart', () => {
+    intervaloDesplazamiento = setInterval(() => {
+        fila.scrollLeft -= fila.offsetWidth / 2 / velocidadDesplazamiento;
+        contadorMovimientos++;
+
+        if (contadorMovimientos === 22) {
+            const indicadorActivo = document.querySelector('.indicadores .activo');
+            if (indicadorActivo.previousSibling) {
+                indicadorActivo.previousSibling.classList.add('activo');
+                indicadorActivo.classList.remove('activo');
+            }
+            contadorMovimientos = 0;
+        }
+    }, 100);
+});
+
+flechaIzquierda.addEventListener('touchend', () => {
+    clearInterval(intervaloDesplazamiento);
+});
 // ? ----- ----- Paginacion ----- -----
 const numeroPaginas = Math.ceil(imagen.length / 2);
 for(let i = 0; i < numeroPaginas; i++){
@@ -68,4 +110,5 @@ for(let i = 0; i < numeroPaginas; i++){
 		e.target.classList.add('activo');
 	});
 }
+
 
